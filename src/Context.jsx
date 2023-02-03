@@ -20,37 +20,10 @@ const AppProvider = ({ children }) => {
     fetchNotes();
   }, []);
 
-  // useEffect(() => {
-  //   let flag = false;
-  //   users.map((user) => {
-  //     console.log(user.name);
-  //     if (user.name === "Aaron") {
-  //       flag = true;
-  //       // setFailsafe(true);
-  //     }
-  //   });
-  //   if (!flag) {
-  //     createUser("Aaron", "test");
-  //   }
-  // }, [users]);
-
   async function fetchUsers() {
     const apiData = await API.graphql({ query: listUsers });
     const usersFromAPI = apiData.data.listUsers.items;
 
-    // console.log(usersFromAPI);
-
-    // usersFromAPI.map((user) => {
-    //   console.log(user.name);
-    //   if (user.name === "Aaron") {
-    //     setFailsafe(true);
-    //   }
-    // });
-
-    // if (!failsafe) {
-    //   createUser("Aaron", "test");
-    //   setFailsafe(true);
-    // }
     console.log(usersFromAPI);
     setUsers(usersFromAPI);
 
@@ -58,9 +31,9 @@ const AppProvider = ({ children }) => {
     //   deleteUser(user.id, user.name);
     // });
 
-    // if (usersFromAPI.length === 0) {
-    //   createUser("test", "test");
-    // }
+    if (usersFromAPI.length === 0) {
+      createUser("test", "test");
+    }
   }
 
   async function fetchNotes() {
