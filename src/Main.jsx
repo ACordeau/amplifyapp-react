@@ -10,9 +10,8 @@ import {
 } from "@aws-amplify/ui-react";
 
 const Main = ({ signOut }) => {
-  const { createNote, deleteNote, notes } = useGlobalContext();
-
-  console.log(notes);
+  const { createNote, deleteNote, notes, users, createUser } =
+    useGlobalContext();
 
   return (
     <View className="App">
